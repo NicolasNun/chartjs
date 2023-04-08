@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+  <div style="display: flex;">
+    <div style="width: 500px;">
+      <canvas style="display: flex;" id="myChart"></canvas>
+    </div>
+    <div style="width: 500px;">
+      <canvas style="display: flex;" id="Chart"></canvas>
+    </div>
+  </div>
+
+</body>
+
+<script>
+    const ctx = document.getElementById('myChart');
+    const ct = document.getElementById('Chart');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+        datasets: [{
+            label: 'Temperatura',
+            data: [30, 29, 28, 25, 22, 23],
+            borderColor: 'rgb(255,99,132)',
+            backgroundColor: 'rgb(255,99,132)',
+            borderWidth: 1
+        },
+        {
+            label: 'Umidade',
+            data: [80, 82, 80, 85, 80, 83],
+            borderColor: 'rgb(54,162,235)',
+            backgroundColor: 'rgb(54,162,235)',
+            borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtTwenty: true
+          }
+        }
+      }
+    });
+    new Chart(ct, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+            label: 'Temperatura Média',
+            data: [22, 24, 27, 23, 20, 18],
+            borderColor: 'rgb(255,99,132)',
+            backgroundColor: 'rgb(255,99,132)',
+            borderWidth: 1
+        },
+        {
+            label: 'Umidade Média',
+            data: [90, 89, 93, 87, 88, 82],
+            borderColor: 'rgb(54,162,235)',
+            backgroundColor: 'rgb(54,162,235)',
+            borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</html>
